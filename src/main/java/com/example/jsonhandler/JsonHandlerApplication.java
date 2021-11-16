@@ -11,7 +11,7 @@ public class JsonHandlerApplication {
 
     public static void main(String[] args) throws JSONException, ParseException, JsonProcessingException {
 
-        String jsonStrArr = "{\n" +
+        String jsonStr = "{\n" +
                 "\"name\":\"John\",\n" +
                 "\"age\":30,\n" +
                 "\"cars\":[\"Ford\", \"BMW\", \"Fiat\"]\n" +
@@ -25,41 +25,30 @@ public class JsonHandlerApplication {
 //                "    },\n" +
 //                "    \"countryDayOneRoute\": {\n" +
 //                "        \"Name\": \"Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case\",\n" +
-//                "        \"Description\": \"Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths\",\n" +
+//                "        \"Description\": \"Returns all cases by case type for a country from the first recorded case. \",\n" +
 //                "        \"Path\": \"/dayone/country/:country\"\n" +
-//                "    },\n" +
-//                "    \"countryDayOneTotalRoute\": {\n" +
-//                "        \"Name\": \"Get List Of Cases Per Country By Case Type From The First Recorded Case\",\n" +
-//                "        \"Description\": \"Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths\",\n" +
-//                "        \"Path\": \"/total/dayone/country/:country\"\n" +
-//                "    },\n" +
-//                "    \"countryRoute\": {\n" +
-//                "        \"Name\": \"Get List Of Cases Per Country Per Province By Case Type\",\n" +
-//                "        \"Description\": \"Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths\",\n" +
-//                "        \"Path\": \"/country/:country\"\n" +
-//                "    },\n" +
-//                "    \"countryRoutePremium\": {\n" +
-//                "        \"Name\": \"Premium Data: Get List Of Cases Per Country By Case Type\",\n" +
-//                "        \"Description\": \"Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths\",\n" +
-//                "        \"Path\": \"/premium/country/:country\"\n" +
-//                "    }" +
+//                "    }\n" +
 //                "}";
-
 
         ObjectMapper objectMapper = new ObjectMapper();
 //        ObjectNode objectNode = (ObjectNode) objectMapper.readTree(jsonStr);
-        ObjectNode objectNode2 = (ObjectNode) objectMapper.readTree(jsonStrArr);
+        ObjectNode objectNode2 = (ObjectNode) objectMapper.readTree(jsonStr);
         MyJsonHandler jsonHandler = new MyJsonHandler();
 
 //        jsonHandler.replaceParamValue(objectNode, "Name", "*****");
 //        jsonHandler.replaceParamValue(objectNode, "Description", "######");
 //        jsonHandler.replaceParamValue(objectNode, "Path", "@@@@@@@");
 
-        jsonHandler.replaceParamValue(objectNode2, "cars", "*****");
+//        jsonHandler.replaceParamValue(objectNode2, "cars", "*****");
 
 //        System.out.println(objectNode.toPrettyString());
-        System.out.println("######################");
-        System.out.println(objectNode2.toPrettyString());
+//        System.out.println("######################");
+//        System.out.println(objectNode2.toPrettyString());
+
+        System.out.println("##################################################");
+
+        Test test = new Test(jsonStr);
+        test.parseJsonArray("cars", "***");
     }
 }
 
